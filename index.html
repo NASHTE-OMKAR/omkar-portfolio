@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omkar Nashte - Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+  <!-- Animated SVG Background -->
+  <svg id="svg-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#3b82f6; stop-opacity:1" />
+        <stop offset="50%" style="stop-color:#8b5cf6; stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#f472b6; stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <path class="svg-shape" d="M100,200 C200,100 400,300 600,200 C800,100 1000,300 1200,200" style="animation-delay: 0s;"></path>
+    <path class="svg-shape" d="M50,500 C200,400 400,600 600,500 C800,400 1000,600 1300,500" style="animation-delay: -5s;"></path>
+    <path class="svg-shape" d="M0,800 C300,700 500,900 800,800 C1100,700 1300,900 1440,800" style="animation-delay: -10s;"></path>
+  </svg>
+
+  <!-- Particles Background -->
+  <div id="particles-container"></div>
+
+  <!-- Navigation Sphere -->
+  <div class="nav-sphere" id="home-btn">ON</div>
+
+  <!-- Dark Mode Toggle -->
+  <div class="dark-mode-toggle" id="darkModeToggle">🌙</div>
+
+  <!-- 3D Navigation Menu -->
+  <div class="nav-menu" id="nav-menu">
+    <div class="nav-item active" data-section="home">🏠</div>
+    <div class="nav-item" data-section="about">👨‍💻</div>
+    <div class="nav-item" data-section="experience">💼</div>
+    <div class="nav-item" data-section="projects">🚀</div>
+    <div class="nav-item" data-section="skills">⚡</div>
+    <div class="nav-item" data-section="contact">📧</div>
+  </div>
+
+  <!-- Main Content Area -->
+  <div class="main-content" id="main-content">
+    <!-- Home Section -->
+    <div class="section active" id="home-section">
+      <div class="text-center space-y-8">
+        <div class="relative">
+          <img 
+            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/2aeb072f-e67a-436e-8c7d-dd1d51782a7e/57e39569-c934-433e-bcec-6f3e16f53779.png" 
+            alt="Omkar Nashte" 
+            class="w-48 h-48 rounded-full mx-auto shadow-2xl transform hover:scale-110 hover:rotate-6 transition-all duration-500"
+          />
+          <div class="absolute inset-0 rounded-full pointer-events-none">
+            <div class="w-full h-full rounded-full" id="glow-border"></div>
+          </div>
+        </div>
+        <h1 class="text-5xl font-bold gradient-text" id="typewriter-text">Omkar Nashte</h1>
+        <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+          Salesforce Developer & Electronics Engineer crafting innovative solutions at the intersection of technology and business
+        </p>
+        
+        <!-- Social Icons -->
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/yourprofile" class="social-icon linkedin" data-tooltip="LinkedIn" target="_blank" rel="noopener noreferrer">🔗</a>
+          <a href="https://github.com/yourusername" class="social-icon github" data-tooltip="GitHub" target="_blank" rel="noopener noreferrer">🐙</a>
+          <a href="https://trailhead.salesforce.com/en/me/yourtrailhead" class="social-icon trailhead" data-tooltip="Trailhead" target="_blank" rel="noopener noreferrer">🏆</a>
+          <a href="mailto:NASHTE.OMKAR1@gmail.com" class="social-icon email" data-tooltip="Email Me">✉️</a>
+        </div>
+
+        <div class="flex justify-center space-x-4 mt-8">
+          <button id="view-projects-btn" class="btn btn-primary">View Projects</button>
+          <button id="get-in-touch-btn" class="btn btn-outline">Get in Touch</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="section" id="about-section">
+      <div class="space-y-8">
+        <h2 class="text-4xl font-bold text-center gradient-text">About Me</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="space-y-4">
+            <img 
+              src="https://placehold.co/600x400/667eea/ffffff?text=About+Me" 
+              alt="About Omkar" 
+              class="w-full h-64 object-cover rounded-xl shadow-lg transform hover:scale-105 hover:rotate-2 transition-all duration-500"
+            />
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+              <h3 class="text-2xl font-bold text-gray-800 mb-3">My Journey</h3>
+              <p class="text-gray-700 leading-relaxed">
+                B.Tech graduate in Electronics and Telecommunication with hands-on Salesforce training and project experience. 
+                Seeking an entry-level role in technology to apply technical skills and a collaborative approach toward developing robust solutions.
+              </p>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">Education</h3>
+              <p class="text-gray-700"><strong>Walchand Institute of Technology, Solapur</strong></p>
+              <p class="text-gray-600">B. Tech in Electronics and Telecommunication</p>
+              <p class="text-gray-600">GPA: 9.39 (Top 5%)</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">Trailhead Achievements</h3>
+              <p class="text-gray-700"><strong>Rank:</strong> Mountaineer</p>
+              <p class="text-gray-700"><strong>Badges:</strong> 30</p>
+              <p class="text-gray-700"><strong>Points:</strong> 19,350</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-gray-100">
+              <h3 class="text-xl font-bold text-gray-800 mb-3">Languages</h3>
+              <p class="text-gray-700">English, Marathi, Hindi (Professional)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="section" id="experience-section">
+      <div class="space-y-8">
+        <h2 class="text-4xl font-bold text-center gradient-text">Experience & Training</h2>
+        <div class="space-y-6">
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-800">Salesforce Developer Training</h3>
+                <p class="text-blue-600 font-semibold">Salesforce Jungle</p>
+              </div>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">11/2024–05/2025</span>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              Comprehensive Salesforce development training covering Apex, Visualforce, Lightning Web Components, and platform architecture.
+            </p>
+          </div>
+          
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+            <div class="flex items-start justify-between mb-4">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-800">Assistant Manager (GAT)</h3>
+                <p class="text-blue-600 font-semibold">Mahindra and Mahindra</p>
+              </div>
+              <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">09/2023–09/2024</span>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+              Gained valuable experience in project management, team coordination, and operational efficiency in a leading automotive company.
+            </p>
+          </div>
+          
+          <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Certifications</h3>
+            <div class="grid md:grid-cols-2 gap-4">
+              <div class="bg-white p-4 rounded-lg border border-gray-100">
+                <p class="font-semibold text-gray-800">Salesforce Platform Developer I</p>
+                <p class="text-sm text-gray-600">01/2025–01/2026</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg border border-gray-100">
+                <p class="font-semibold text-gray-800">Salesforce AI Associate</p>
+                <p class="text-sm text-gray-600">01/2025–01/2026</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg border border-gray-100">
+                <p class="font-semibold text-gray-800">Java Programming</p>
+                <p class="text-sm text-gray-600">Great Learning</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg border border-gray-100">
+                <p class="font-semibold text-gray-800">Java - Basic</p>
+                <p class="text-sm text-gray-600">HackerRank, 5-Star</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Section -->
+    <div class="section" id="projects-section">
+      <div class="space-y-8">
+        <h2 class="text-4xl font-bold text-center gradient-text">Projects</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="project-card">
+            <div class="project-header bg-gradient-to-r from-blue-400 to-purple-500">
+              <img src="https://placehold.co/600x300/4f46e5/ffffff?text=Inventory+Management" alt="Inventory Management System" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">Inventory Management System</h3>
+              <p class="text-blue-600 font-semibold mb-3">Salesforce Engineer</p>
+              <div class="space-y-2 text-gray-700">
+                <p>• Created custom objects and worked on Standard Objects</p>
+                <p>• Implemented Visualforce Pages, Apex Components, Controllers, Triggers</p>
+                <p>• Built custom Visualforce page to generate branded invoice PDFs</p>
+                <p>• Created profiles and implemented Field level and Object level security</p>
+                <p>• Created Validation rules, Assignment rules, Workflow Rules</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-header bg-gradient-to-r from-purple-400 to-pink-500">
+              <img src="https://placehold.co/600x300/7c3aed/ffffff?text=Real+Estate+CRM" alt="Real Estate Management Solution" />
+            </div>
+            <div class="p-6">
+              <h3 class="text-2xl font-bold text-gray-800 mb-2">Real Estate Management Solution</h3>
+              <p class="text-blue-600 font-semibold mb-3">Apex, LWC, Data Modeling</p>
+              <div class="space-y-2 text-gray-700">
+                <p>• Developed comprehensive CRM for property listings, agent profiles</p>
+                <p>• Designed custom data model with Property, Agent, and Client objects</p>
+                <p>• Created trigger to add related opportunity for new/updated accounts</p>
+                <p>• Implemented email notifications for contact record insertions</p>
+                <p>• Enforced data security with role hierarchies and field-level security</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="section" id="skills-section">
+      <div class="space-y-8">
+        <h2 class="text-4xl font-bold text-center gradient-text">Skills & Expertise</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="skill-card bg-gradient-to-br from-blue-50 to-blue-100">
+            <div class="text-4xl mb-4">🔧</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Salesforce Administration</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Custom Objects & Relationships</li>
+              <li>• Validation Rules & Workflows</li>
+              <li>• Approval Processes Automation</li>
+              <li>• Lookup & Master-Detail Relationships</li>
+              <li>• Junction Objects</li>
+            </ul>
+          </div>
+          
+          <div class="skill-card bg-gradient-to-br from-purple-50 to-purple-100">
+            <div class="text-4xl mb-4">🔒</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Data Security & Automation</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Pick Lists & Record Types</li>
+              <li>• Permission Sets & Profiles</li>
+              <li>• Role Hierarchy Implementation</li>
+              <li>• Field-Level Security</li>
+              <li>• Sharing Rules</li>
+            </ul>
+          </div>
+          
+          <div class="skill-card bg-gradient-to-br from-pink-50 to-pink-100">
+            <div class="text-4xl mb-4">📊</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Salesforce Platform</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Accounts, Contacts, Opportunities</li>
+              <li>• Leads, Campaigns, Reports</li>
+              <li>• Dashboard Creation</li>
+              <li>• Data Quality Monitoring</li>
+              <li>• Report Design & Management</li>
+            </ul>
+          </div>
+          
+          <div class="skill-card bg-gradient-to-br from-indigo-50 to-indigo-100">
+            <div class="text-4xl mb-4">💻</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Development</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Apex Language & Triggers</li>
+              <li>• Apex Classes & Async Apex</li>
+              <li>• SOQL & SOSL</li>
+              <li>• Visualforce Pages</li>
+              <li>• Force.com IDE</li>
+            </ul>
+          </div>
+          
+          <div class="skill-card bg-gradient-to-br from-teal-50 to-teal-100">
+            <div class="text-4xl mb-4">🤝</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Teamwork & Leadership</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Cross-functional Collaboration</li>
+              <li>• Peer Mentoring</li>
+              <li>• Agile Methodologies</li>
+              <li>• Problem Solving</li>
+              <li>• Communication Skills</li>
+            </ul>
+          </div>
+          
+          <div class="skill-card bg-gradient-to-br from-amber-50 to-amber-100">
+            <div class="text-4xl mb-4">🌐</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">Technical Proficiencies</h3>
+            <ul class="space-y-2 text-gray-700">
+              <li>• Java Programming</li>
+              <li>• JavaScript</li>
+              <li>• HTML & CSS</li>
+              <li>• OOPs Concepts</li>
+              <li>• Data Structures</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section" id="contact-section">
+      <div class="space-y-8">
+        <h2 class="text-4xl font-bold text-center gradient-text">Get In Touch</h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="space-y-6">
+              <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Contact Information</h3>
+                <div class="space-y-4">
+                  <div class="flex items-center">
+                    <span class="text-2xl mr-3">📍</span>
+                    <p class="text-gray-700">Pune, India</p>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-2xl mr-3">📱</span>
+                    <p class="text-gray-700">(+91) 9518525853</p>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-2xl mr-3">✉️</span>
+                    <p class="text-gray-700">NASHTE.OMKAR1@gmail.com</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional Profiles</h3>
+                <div class="space-y-3">
+                  <div class="flex items-center hover:bg-white p-2 rounded-lg transition-all duration-300 cursor-pointer hover:pl-4">
+                    <span class="text-2xl mr-3">🔗</span>
+                    <p class="text-blue-600 font-medium">LinkedIn Profile</p>
+                  </div>
+                  <div class="flex items-center hover:bg-white p-2 rounded-lg transition-all duration-300 cursor-pointer hover:pl-4">
+                    <span class="text-2xl mr-3">🐙</span>
+                    <p class="text-blue-600 font-medium">GitHub Profile</p>
+                  </div>
+                  <div class="flex items-center hover:bg-white p-2 rounded-lg transition-all duration-300 cursor-pointer hover:pl-4">
+                    <span class="text-2xl mr-3">🏆</span>
+                    <p class="text-blue-600 font-medium">Trailhead Profile</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-500">
+              <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Me a Message</h3>
+              <form id="contact-form" class="space-y-4">
+                <div><input type="text" placeholder="Your Name" required /></div>
+                <div><input type="email" placeholder="Your Email" required /></div>
+                <div><textarea placeholder="Your Message" rows="4" required></textarea></div>
+                <button type="submit" class="btn btn-primary w-full">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Education Box -->
+  <div class="floating-card left">
+    <div class="label">Education</div>
+    <div class="value">B.Tech E&TC</div>
+    <div class="detail">GPA: 9.39 (Top 5%)</div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="decor-bubble" style="top: 25%; left: 25%; width: 8rem; height: 8rem; background: linear-gradient(to right, #93c5fd, #c4b5fd); animation-delay: 0s;"></div>
+  <div class="decor-bubble" style="top: 75%; right: 25%; width: 6rem; height: 6rem; background: linear-gradient(to right, #d8b4fe, #fbcfe8); animation-delay: 1s;"></div>
+  <div class="decor-bubble" style="bottom: 33%; left: 33%; width: 5rem; height: 5rem; background: linear-gradient(to right, #fbcfe8, #93c5fd); animation-delay: 2s;"></div>
+
+  <!-- Load JS -->
+  <script src="script.js"></script>
+</body>
+</html>
