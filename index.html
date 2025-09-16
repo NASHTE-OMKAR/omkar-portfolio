@@ -377,10 +377,31 @@
  <!-- Einstein Bot (Embedded Messaging) - FINAL VERSION -->
 <!-- Einstein Bot (Embedded Messaging) - CORRECTED -->
 <!-- Einstein Bot (Embedded Messaging) - CLEAN VERSION -->
+  <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DIS000000Jwne',
+				'Omkar_Protfolio_bot_v2',
+				'https://onsandbox-dev-ed.develop.my.site.com/ESWOmkarProtfoliobotv21758008867832',
+				{
+					scrt2URL: 'https://onsandbox-dev-ed.develop.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://onsandbox-dev-ed.develop.my.site.com/ESWOmkarProtfoliobotv21758008867832/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 
 </body>
 
 </html>
+
 
 
 
