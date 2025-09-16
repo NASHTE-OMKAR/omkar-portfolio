@@ -377,50 +377,11 @@
  <!-- Einstein Bot (Embedded Messaging) - FINAL VERSION -->
 <!-- Einstein Bot (Embedded Messaging) - CORRECTED -->
 <!-- Einstein Bot (Embedded Messaging) - CLEAN VERSION -->
-<script type="text/javascript">
-  function initEinsteinBot() {
-    if (!window.embeddedservice_bootstrap) {
-      var script = document.createElement('script');
-      script.src = 'https://onsandbox-dev-ed.develop.my.site.com/ESWOmkarsPortfolioBot1757958586528/assets/js/bootstrap.min.js'; // ✅ NO SPACES
-      script.onload = function() {
-        startBot();
-      };
-      script.onerror = function() {
-        console.error('Failed to load Einstein Bot script.');
-      };
-      document.head.appendChild(script);
-    } else {
-      startBot();
-    }
-  }
 
-  function startBot() {
-    try {
-      embeddedservice_bootstrap.settings.language = 'en_US';
-      embeddedservice_bootstrap.settings.enabledFeatures = ['LiveAgent'];
-      embeddedservice_bootstrap.settings.entryFeature = 'LiveAgent';
-
-      embeddedservice_bootstrap.init(
-        '00DIS000000Jwne', // ✅ Org ID (Deployment ID from Setup)
-        'Omkar_s_Portfolio_Bot', // ✅ Deployment Name
-        'https://onsandbox-dev-ed.develop.my.site.com/ESWOmkarsPortfolioBot1757958586528', // ✅ COMMUNITY URL — NO SPACES!
-        {
-          scrt2URL: 'https://onsandbox-dev-ed.develop.my.salesforce-scrt.com', // ✅ NO SPACES
-          enableHelpButton: true,
-          helpButtonLabel: '💬 Chat with Einstein',
-          helpButtonColor: '#7c3aed'
-        }
-      );
-    } catch (err) {
-      console.error('Error initializing Einstein Bot: ', err);
-    }
-  }
-
-  window.addEventListener('load', initEinsteinBot);
-</script>
 </body>
 
 </html>
+
 
 
 
