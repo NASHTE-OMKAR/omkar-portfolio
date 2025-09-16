@@ -375,6 +375,7 @@
 
   <!-- Load JS -->
  <!-- Einstein Bot (Embedded Messaging) - FINAL VERSION -->
+<!-- Einstein Bot (Embedded Messaging) - CORRECTED -->
 <script type="text/javascript">
   function initEmbeddedMessaging() {
     try {
@@ -383,11 +384,11 @@
       embeddedservice_bootstrap.settings.enabledFeatures = ['LiveAgent'];
       embeddedservice_bootstrap.settings.entryFeature = 'LiveAgent';
 
-      // Initialize with PUBLISHED URL — NO TRAILING SPACES
+      // Initialize with PUBLISHED URL — NO SPACES WHATSOEVER
       embeddedservice_bootstrap.init(
         '00DIS000000Jwne', // Org/Deployment ID
         'Omkar_s_Portfolio_Bot', // Deployment Name
-        'https://onsandbox-dev-ed.develop.my.site.com/ESWOmkarsPortfolioBot1757958586528', // ✅ PUBLISHED URL
+        'https://onsandbox-dev-ed.develop.my.site.com/ESWOmkarsPortfolioBot1757958586528', // ✅ NO SPACES
         {
           scrt2URL: 'https://onsandbox-dev-ed.develop.my.salesforce-scrt.com', // ✅ NO SPACES
           enableHelpButton: true,
@@ -402,10 +403,10 @@
     }
   }
 
-  // Load the bootstrap script dynamically — NO SPACES
+  // Load the bootstrap script dynamically — ABSOLUTELY NO SPACES
   (function() {
     var script = document.createElement('script');
-    script.src = 'https://onsandbox-dev-ed.develop.my.site.com/ESWOmkarsPortfolioBot1757958586528/assets/js/bootstrap.min.js';
+    script.src = 'https://onsandbox-dev-ed.develop.my.site.com/ESWOmkarsPortfolioBot1757958586528/assets/js/bootstrap.min.js'; // ✅ CLEAN
     script.onload = initEmbeddedMessaging;
     script.onerror = function() {
       console.error('Failed to load Einstein Bot script.');
@@ -416,5 +417,6 @@
 </body>
 
 </html>
+
 
 
