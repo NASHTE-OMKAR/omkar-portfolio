@@ -1,15 +1,36 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // State
+document.addEventListener('DOMContentLoaded', function () {
+  const loadingScreen = document.getElementById('loading-screen');
+  const welcomePopup = document.getElementById('welcome-popup');
+  const closeWelcomeBtn = document.getElementById('close-welcome');
+
+  // Hide loading screen after 2.5 seconds
+  setTimeout(() => {
+    loadingScreen.style.opacity = '0';
+    loadingScreen.style.visibility = 'hidden';
+  }, 2500);
+
+  // Show welcome popup once
+  if (!localStorage.getItem('visited')) {
+    setTimeout(() => {
+      welcomePopup.classList.add('show');
+      localStorage.setItem('visited', 'true');
+    }, 3000);
+  }
+
+  closeWelcomeBtn?.addEventListener('click', () => {
+    welcomePopup.classList.remove('show');
+  });
+
+  // === Core Logic ===
   let activeSection = 'home';
   let isRotating = false;
 
-  // Initialize dark mode
-  const savedTheme = localStorage.getItem('theme') || 'light';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  document.getElementById('darkModeToggle').innerText = savedTheme === 'dark' ? '☀️' : '🌙';
+  // Dark mode
+  document.documentElement.setAttribute('data-theme', 'dark');
+  localStorage.setItem('theme', 'dark');
+  document.getElementById('darkModeToggle').innerText = '☀️';
 
-  // Dark mode toggle
-  document.getElementById('darkModeToggle').addEventListener('click', function() {
+  document.getElementById('darkModeToggle').addEventListener('click', function () {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
@@ -17,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     this.innerText = newTheme === 'dark' ? '☀️' : '🌙';
   });
 
-  // Create particles
+  // Particles
   const particlesContainer = document.getElementById('particles-container');
   for (let i = 0; i < 20; i++) {
     const particle = document.createElement('div');
@@ -36,13 +57,10 @@ document.addEventListener('DOMContentLoaded', function() {
     particlesContainer.appendChild(particle);
   }
 
-  // GSAP Typewriter Effect
-  gsap.registerPlugin(ScrollTrigger);
-
+  // Typewriter
   const typewriterText = document.getElementById('typewriter-text');
   const text = "Omkar Nashte";
   let index = 0;
-
   function type() {
     if (index < text.length) {
       typewriterText.textContent = text.slice(0, index + 1);
@@ -50,33 +68,46 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(type, 150);
     }
   }
-
-  // Start typewriter after page loads
   setTimeout(type, 1000);
 
-  // GSAP Page Transitions
+  // Splash cursor
+  const createSplashCursor = () => {
+    const cursor = document.createElement('div');
+    cursor.classList.add('splash-cursor');
+    document.body.appendChild(cursor);
+    document.addEventListener('mousemove', (e) => {
+      const dot = document.createElement('div');
+      dot.classList.add('splash-dot');
+      dot.style.left = `${e.clientX}px`;
+      dot.style.top = `${e.clientY}px`;
+      dot.style.width = `${Math.random() * 10 + 5}px`;
+      dot.style.height = dot.style.width;
+      dot.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      cursor.appendChild(dot);
+      setTimeout(() => {
+        if (dot.parentNode) cursor.removeChild(dot);
+      }, 1000);
+    });
+  };
+  createSplashCursor();
+
+  // Section navigation WITHOUT laser
   function handleSectionClick(sectionId) {
     if (isRotating || activeSection === sectionId) return;
-
     isRotating = true;
-    const mainContent = document.getElementById('main-content');
 
-    // Fade out current section
+    const mainContent = document.getElementById('main-content');
     gsap.to(mainContent, {
       opacity: 0,
-      duration: 0.5,
+      duration: 0.3,
       onComplete: () => {
-        // Hide all sections
         document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-        // Show target
         document.getElementById(`${sectionId}-section`).classList.add('active');
-        // Update nav
         document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
         document.querySelector(`.nav-item[data-section="${sectionId}"]`).classList.add('active');
-        // Fade in
         gsap.to(mainContent, {
           opacity: 1,
-          duration: 0.5,
+          duration: 0.4,
           onComplete: () => {
             isRotating = false;
             activeSection = sectionId;
@@ -86,23 +117,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Nav item click
+  // Event listeners
   document.querySelectorAll('.nav-item').forEach(item => {
-    item.addEventListener('click', function() {
-      const sectionId = this.getAttribute('data-section');
+    item.addEventListener('click', () => {
+      const sectionId = item.getAttribute('data-section');
       handleSectionClick(sectionId);
     });
   });
 
-  // Home button
   document.getElementById('home-btn').addEventListener('click', () => handleSectionClick('home'));
-
-  // Action buttons
   document.getElementById('view-projects-btn').addEventListener('click', () => handleSectionClick('projects'));
   document.getElementById('get-in-touch-btn').addEventListener('click', () => handleSectionClick('contact'));
 
-  // Contact form
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
     alert('Message sent successfully! (Demo)');
     this.reset();
