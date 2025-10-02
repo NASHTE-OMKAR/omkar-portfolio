@@ -1,20 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg">
-<link rel="icon" type="image/png" sizes="16x16" href="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg">
-<link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg">
+  <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg">
+  <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/7/73/Flat_tick_icon.svg">
   <title>Omkar Nashte - Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
+
+  <!-- 🔷 Enhanced Loading Screen -->
+  <div id="loading-screen">
+    <div class="loading-logo">
+      <div class="loading-logo-inner">ON</div>
+    </div>
+    <p class="loading-text">Crafting your experience...</p>
+    <div class="loading-progress">
+      <div class="loading-progress-bar"></div>
+    </div>
+  </div>
+
+  <!-- 🎉 Welcome Popup -->
+  <div id="welcome-popup">
+    <h3>👋 Welcome to My Portfolio!</h3>
+    <p>Hi there! I'm Omkar — a Salesforce Developer & Electronics Engineer passionate about building smart solutions.</p>
+    <button id="close-welcome">Explore Now</button>
+  </div>
+
   <!-- Animated SVG Background -->
   <svg id="svg-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
     <defs>
@@ -36,7 +52,7 @@
   <div class="nav-sphere" id="home-btn">ON</div>
 
   <!-- Dark Mode Toggle -->
-  <div class="dark-mode-toggle" id="darkModeToggle">🌙</div>
+  <div class="dark-mode-toggle" id="darkModeToggle">☀️</div>
 
   <!-- 3D Navigation Menu -->
   <div class="nav-menu" id="nav-menu">
@@ -53,29 +69,26 @@
     <!-- Home Section -->
     <div class="section active" id="home-section">
       <div class="text-center space-y-8">
-        <div class="relative">
-          <img 
-            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/2aeb072f-e67a-436e-8c7d-dd1d51782a7e/57e39569-c934-433e-bcec-6f3e16f53779.png" 
-            alt="Omkar Nashte" 
-            class="w-48 h-48 rounded-full mx-auto shadow-2xl transform hover:scale-110 hover:rotate-6 transition-all duration-500"
+        <div class="profile-container mx-auto">
+          <img
+            src="https://easy-peasy.ai/cdn-cgi/image/quality=80,format=auto,width=700/https://media.easy-peasy.ai/2aeb072f-e67a-436e-8c7d-dd1d51782a7e/57e39569-c934-433e-bcec-6f3e16f53779.png"
+            alt="Omkar Nashte"
+            class="w-48 h-48 rounded-full mx-auto shadow-2xl transform hover:scale-110 hover:rotate-6 transition-all duration-500 relative z-10"
           />
-          <div class="absolute inset-0 rounded-full pointer-events-none">
-            <div class="w-full h-full rounded-full" id="glow-border"></div>
+          <div class="circle">
+            <div class="noise animated"></div>
           </div>
         </div>
         <h1 class="text-5xl font-bold gradient-text" id="typewriter-text">Omkar Nashte</h1>
         <p class="text-xl text-gray-700 max-w-2xl mx-auto">
           Salesforce Developer & Electronics Engineer crafting innovative solutions at the intersection of technology and business
         </p>
-        
-        <!-- Social Icons -->
         <div class="social-icons">
           <a href="https://linkedin.com/in/yourprofile" class="social-icon linkedin" data-tooltip="LinkedIn" target="_blank" rel="noopener noreferrer">🔗</a>
           <a href="https://github.com/yourusername" class="social-icon github" data-tooltip="GitHub" target="_blank" rel="noopener noreferrer">🐙</a>
           <a href="https://trailhead.salesforce.com/en/me/yourtrailhead" class="social-icon trailhead" data-tooltip="Trailhead" target="_blank" rel="noopener noreferrer">🏆</a>
           <a href="mailto:NASHTE.OMKAR1@gmail.com" class="social-icon email" data-tooltip="Email Me">✉️</a>
         </div>
-
         <div class="flex justify-center space-x-4 mt-8">
           <button id="view-projects-btn" class="btn btn-primary">View Projects</button>
           <button id="get-in-touch-btn" class="btn btn-outline">Get in Touch</button>
@@ -89,15 +102,15 @@
         <h2 class="text-4xl font-bold text-center gradient-text">About Me</h2>
         <div class="grid md:grid-cols-2 gap-8">
           <div class="space-y-4">
-            <img 
-              src="https://placehold.co/600x400/667eea/ffffff?text=About+Me" 
-              alt="About Omkar" 
+            <img
+              src="https://placehold.co/600x400/667eea/ffffff?text=About+Me"
+              alt="About Omkar"
               class="w-full h-64 object-cover rounded-xl shadow-lg transform hover:scale-105 hover:rotate-2 transition-all duration-500"
             />
             <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
               <h3 class="text-2xl font-bold text-gray-800 mb-3">My Journey</h3>
               <p class="text-gray-700 leading-relaxed">
-                B.Tech graduate in Electronics and Telecommunication with hands-on Salesforce training and project experience. 
+                B.Tech graduate in Electronics and Telecommunication with hands-on Salesforce training and project experience.
                 Seeking an entry-level role in technology to apply technical skills and a collaborative approach toward developing robust solutions.
               </p>
             </div>
@@ -141,7 +154,6 @@
               Comprehensive Salesforce development training covering Apex, Visualforce, Lightning Web Components, and platform architecture.
             </p>
           </div>
-          
           <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
             <div class="flex items-start justify-between mb-4">
               <div>
@@ -154,7 +166,6 @@
               Gained valuable experience in project management, team coordination, and operational efficiency in a leading automotive company.
             </p>
           </div>
-          
           <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
             <h3 class="text-2xl font-bold text-gray-800 mb-4">Certifications</h3>
             <div class="grid md:grid-cols-2 gap-4">
@@ -201,7 +212,6 @@
               </div>
             </div>
           </div>
-          
           <div class="project-card">
             <div class="project-header bg-gradient-to-r from-purple-400 to-pink-500">
               <img src="https://placehold.co/600x300/7c3aed/ffffff?text=Real+Estate+CRM" alt="Real Estate Management Solution" />
@@ -238,7 +248,6 @@
               <li>• Junction Objects</li>
             </ul>
           </div>
-          
           <div class="skill-card bg-gradient-to-br from-purple-50 to-purple-100">
             <div class="text-4xl mb-4">🔒</div>
             <h3 class="text-xl font-bold text-gray-800 mb-3">Data Security & Automation</h3>
@@ -250,7 +259,6 @@
               <li>• Sharing Rules</li>
             </ul>
           </div>
-          
           <div class="skill-card bg-gradient-to-br from-pink-50 to-pink-100">
             <div class="text-4xl mb-4">📊</div>
             <h3 class="text-xl font-bold text-gray-800 mb-3">Salesforce Platform</h3>
@@ -262,7 +270,6 @@
               <li>• Report Design & Management</li>
             </ul>
           </div>
-          
           <div class="skill-card bg-gradient-to-br from-indigo-50 to-indigo-100">
             <div class="text-4xl mb-4">💻</div>
             <h3 class="text-xl font-bold text-gray-800 mb-3">Development</h3>
@@ -274,7 +281,6 @@
               <li>• Force.com IDE</li>
             </ul>
           </div>
-          
           <div class="skill-card bg-gradient-to-br from-teal-50 to-teal-100">
             <div class="text-4xl mb-4">🤝</div>
             <h3 class="text-xl font-bold text-gray-800 mb-3">Teamwork & Leadership</h3>
@@ -286,7 +292,6 @@
               <li>• Communication Skills</li>
             </ul>
           </div>
-          
           <div class="skill-card bg-gradient-to-br from-amber-50 to-amber-100">
             <div class="text-4xl mb-4">🌐</div>
             <h3 class="text-xl font-bold text-gray-800 mb-3">Technical Proficiencies</h3>
@@ -326,7 +331,6 @@
                   </div>
                 </div>
               </div>
-              
               <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">Professional Profiles</h3>
                 <div class="space-y-3">
@@ -345,7 +349,6 @@
                 </div>
               </div>
             </div>
-            
             <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-500">
               <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Me a Message</h3>
               <form id="contact-form" class="space-y-4">
@@ -365,7 +368,7 @@
   <div class="floating-card left">
     <div class="label">Education</div>
     <div class="value">B.Tech E&TC</div>
-    <div class="detail">GPA: 9.39 (Top 5%)</div>
+    <div class="detail">GPA: 9.39</div>
   </div>
 
   <!-- Decorative Elements -->
@@ -373,10 +376,12 @@
   <div class="decor-bubble" style="top: 75%; right: 25%; width: 6rem; height: 6rem; background: linear-gradient(to right, #d8b4fe, #fbcfe8); animation-delay: 1s;"></div>
   <div class="decor-bubble" style="bottom: 33%; left: 33%; width: 5rem; height: 5rem; background: linear-gradient(to right, #fbcfe8, #93c5fd); animation-delay: 2s;"></div>
 
-  <!-- Load JS -->
- <!-- Einstein Bot (Embedded Messaging) - FINAL VERSION -->
-<!-- Einstein Bot (Embedded Messaging) - CORRECTED -->
-<!-- Einstein Bot (Embedded Messaging) - CLEAN VERSION -->
+  <!-- External Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
   <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
@@ -396,14 +401,5 @@
 	};
 </script>
 <script type='text/javascript' src='https://onsandbox-dev-ed.develop.my.site.com/ESWOmkarProtfoliobotv21758008867832/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
-
 </body>
-
 </html>
-
-
-
-
-
-
